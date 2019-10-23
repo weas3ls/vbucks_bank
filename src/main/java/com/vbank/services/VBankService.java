@@ -47,7 +47,7 @@ public class VBankService {
 
     public static void giftVbucks(int playerId, int gifterAccount) {
         int amount = -1;
-        System.out.println("\nPlease enter a valid Vbucks amount to gift\n");
+        System.out.println("\nPlease enter a valid Vbucks amount to gift");
         while (amount < 0) {
             if (!scanner.hasNextInt()) {
                 System.out.println(wholeNumbersInsult);
@@ -63,7 +63,7 @@ public class VBankService {
             }
         }
         int giftedAccount = -1;
-        System.out.println("\nPlease select a valid Vbucks account to receive your generous gift\n");
+        System.out.println("\nPlease select a valid Vbucks account to receive your generous gift");
         while (giftedAccount < 0) {
             if (!scanner.hasNextInt()) {
                 scanner.nextLine();
@@ -82,7 +82,7 @@ public class VBankService {
 
     public static void createJointAccount(int accountId) {
         int jointAccount = -1;
-        System.out.println("\nPlease enter a valid player account to link\n");
+        System.out.println("\nPlease enter a valid player account to link");
         while (jointAccount < 0) {
             if (!scanner.hasNextInt()) {
                 System.out.println("\nInvalid account, you noob! Try again!");

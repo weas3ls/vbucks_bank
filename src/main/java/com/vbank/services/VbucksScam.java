@@ -91,7 +91,7 @@ public class VbucksScam {
                     break;
                 }
             } else {
-                System.out.println("\n\nNice job on avoiding the scam! We've logged you out to protect your account\nPlease log back in\n");
+                System.out.println("\n\nNice job on avoiding the scam! We've logged you out to protect your account\n");
                 new MainMenu();
             }
         }
