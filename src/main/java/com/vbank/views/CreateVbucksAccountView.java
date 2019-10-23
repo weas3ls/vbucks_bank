@@ -1,5 +1,6 @@
 package com.vbank.views;
 
+import com.vbank.dao.PlayerDao;
 import com.vbank.dao.VbucksAccountDao;
 import com.vbank.util.ScannerUtil;
 
@@ -31,11 +32,13 @@ public class CreateVbucksAccountView implements View {
         switch (selection) {
             case 1:
                 accountId = VbucksAccountDao.createVbucksAccount(playerId, "Checking");
-                System.out.println("Account created successfully!\n");
-                return new PlayerMenu(accountId, playerId);
-            case 2:
-                accountId = VbucksAccountDao.createVbucksAccount(playerId, "Saving");
-                System.out.println("Account created successfully!\n");
+                System.out.println("\nAccount created successfully!\n");
+                PlayerDao.printPlayerAccountInfo(playerId);
+            return new PlayerMenu(accountId, playerId);
+        case 2:
+            accountId = VbucksAccountDao.createVbucksAccount(playerId, "Savings");
+            System.out.println("\nAccount created successfully!\n");
+            PlayerDao.printPlayerAccountInfo(playerId);
                 return new PlayerMenu(accountId, playerId);
             case 0:
                 return new PlayerMenu(accountId, playerId);

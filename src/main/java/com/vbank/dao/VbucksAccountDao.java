@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import com.vbank.util.ConnectionUtil;
 
 public class VbucksAccountDao {
-    private static PlayerDao playerDao = new PlayerDao();
 
     public static int createVbucksAccount(int playerId, String accountType) {
         try (Connection connection = ConnectionUtil.getConnection()) {
@@ -40,7 +39,7 @@ public class VbucksAccountDao {
             while (result.next()) {
                 if (result.getBoolean("depositVbucks")) {
                     System.out.println("\nVbucks deposited successfully\n");
-                    playerDao.printPlayerAccountInfo(playerId);
+                    PlayerDao.printPlayerAccountInfo(playerId);
                 } else {
                     System.out.println("Your account is closed you noob! Open it first!");
                 }
@@ -83,10 +82,10 @@ public class VbucksAccountDao {
             while (result.next()) {
                 if (result.getBoolean("withdrawVbucks")) {
                     System.out.println("\nVbucks withdrawn successfully\n");
-                    playerDao.printPlayerAccountInfo(playerId);
+                    PlayerDao.printPlayerAccountInfo(playerId);
                 } else {
                     System.out.println("\nYour account is closed you noob!\n");
-                    playerDao.printPlayerAccountInfo(playerId);
+                    PlayerDao.printPlayerAccountInfo(playerId);
                 }
             }
         } catch (SQLException e) {

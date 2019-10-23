@@ -68,7 +68,7 @@ public class LoginView extends PasswordHashing implements View {
 
     public static Account successfulLogin(Player player) {
         System.out.println("Welcome " + player.getFirstName());
-        List<Integer> accounts = playerDao.printPlayerAccountInfo(player.getPlayerId());
+        List<Integer> accounts = PlayerDao.printPlayerAccountInfo(player.getPlayerId());
         Account account = ScannerUtil.selectAccount(player, accounts);
         return account;
     }

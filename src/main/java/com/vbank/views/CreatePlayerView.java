@@ -37,7 +37,7 @@ public class CreatePlayerView extends PasswordHashing implements View {
 
         playerDao.createDBPlayer(firstName, username, hashedPassword, salt);
         Player player = playerDao.createPlayerClass(username);
-        playerDao.printPlayerAccountInfo(player.getPlayerId());
+        PlayerDao.printPlayerAccountInfo(player.getPlayerId());
         return player.getPlayerId();
     }
 

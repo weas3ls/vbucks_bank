@@ -80,7 +80,7 @@ public class PlayerDao {
         return null;
     }
 
-    public List<Integer> printPlayerAccountInfo(int playerId) {
+    public static List<Integer> printPlayerAccountInfo(int playerId) {
         try (Connection connection = ConnectionUtil.getConnection()) {
             String query = "select vbucks_account.id, player.first_name, vbucks_account_type.account_type, vbucks_account.balance, vbucks_account.date_created, vbucks_account.status, player.username from player_vbucks_account inner join player on player_vbucks_account.player_id = player.id inner join vbucks_account on vbucks_account.id =  player_vbucks_account.account_id inner join vbucks_account_type on vbucks_account.account_type = vbucks_account_type.id where player.id = (?) and vbucks_account.status = (?)";
             PreparedStatement statement = connection.prepareStatement(query);
