@@ -17,7 +17,7 @@ public class ScannerUtil {
     public static int getInput(int max) {
         int input = -1;
         while (input < 0 || input > max) {
-            System.out.println("Please make a selection between 0 and " + max);
+            System.out.println("\nPlease make a selection between 0 and " + max);
             if (!scanner.hasNextInt()) {
                 scanner.nextLine();
                 continue;
@@ -39,7 +39,7 @@ public class ScannerUtil {
     public static double getInput(double max) {
         double input = -1;
         while (input < 0 || input > max) {
-            System.out.println("Please make a selection between 0 and " + max);
+            System.out.println("\nPlease make a selection between 0 and " + max);
             if (!scanner.hasNextDouble()) {
                 scanner.nextLine();
                 continue;
@@ -51,7 +51,7 @@ public class ScannerUtil {
 
     public static Account selectAccount(Player player, List<Integer> accounts) {
         int input = -1;
-        System.out.println("Please select a valid Vbucks account " + accounts + " or press 0 to create new account");
+        System.out.println("\nPlease select a valid Vbucks account " + accounts + " or press 0 to create new account");
         while (input < 0 || !(accounts.contains(input))) {
             if (!scanner.hasNextInt()) {
                 scanner.nextLine();
@@ -62,7 +62,7 @@ public class ScannerUtil {
                 break;
             }
             if (!(accounts.contains(input))) {
-                System.out.println("Wrong account number you noob! Try again");
+                System.out.println("\nWrong account number you noob! Try again");
                 continue;
             }
         }

@@ -41,7 +41,7 @@ public class VbucksAccountDao {
                     System.out.println("\nVbucks deposited successfully\n");
                     PlayerDao.printPlayerAccountInfo(playerId);
                 } else {
-                    System.out.println("Your account is closed you noob! Open it first!");
+                    System.out.println("\nYour account is closed you noob! Open it first!\n");
                 }
             }
         } catch (SQLException e) {
@@ -128,7 +128,7 @@ public class VbucksAccountDao {
             int result = statement.executeUpdate();
 
             if (result == 1) {
-                System.out.println("Congrats! You've added another player to this account, you noob!");
+                System.out.println("\nCongrats! You've added another player to this account, you noob!\n");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -145,32 +145,10 @@ public class VbucksAccountDao {
             int result = statement.executeUpdate();
 
             if (result == 1) {
-                System.out.println("You've closed your account, you noob! Goodbye!");
+                System.out.println("\nYou've closed your account, you noob! Goodbye!\n");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    // public static PlayerAccount createPlayerAccountClass(int playerId, int accountId) {
-    //     try (Connection connection = ConnectionUtil.getConnection()) {
-    //         String query = "select player.first_name, vbucks_account_type.account_type, vbucks_account.balance, vbucks_account.date_created, player.username from player_vbucks_account inner join player on player_vbucks_account.player_id = player.id inner join vbucks_account_type on player_vbucks_account.account_type_id = vbucks_account_type.id inner join vbucks_account on vbucks_account.id = player_vbucks_account.account_id where player.id = (?)";
-    //         PreparedStatement statement = connection.prepareStatement(query);
-    //         statement.setLong(1, playerId);
-
-    //         ResultSet resultSet = statement.executeQuery();
-    //         while (resultSet.next()) {
-    //             String firstName = resultSet.getString("first_name");
-    //             String username = resultSet.getString("username");
-    //             String accountType = resultSet.getString("account_type");
-    //             int balance = resultSet.getInt("balance");
-    //             LocalDate date_created = resultSet.getDate("date_created").toLocalDate();
-    //             PlayerAccount playerAccount = new PlayerAccount(playerId, accountId, firstName, username, accountType, balance, date_created);
-    //             return playerAccount;
-    //         }
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    //     return null;
-    // }
 }

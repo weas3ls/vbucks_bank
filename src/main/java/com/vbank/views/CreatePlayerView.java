@@ -13,23 +13,23 @@ public class CreatePlayerView extends PasswordHashing implements View {
     public int createPlayer() {
         Console console = System.console();
 
-        System.out.println("Enter first name:");
+        System.out.println("\nEnter first name");
         String firstName = console.readLine();
 
-        System.out.println("Enter username:");
+        System.out.println("\nEnter username");
         String username = console.readLine();
 
         while (true) {
             boolean usernameExists = playerDao.checkPlayerExists(username);    
             if (usernameExists) {
-                System.out.println("Username's been taken, you noob!\nTry again!");
+                System.out.println("\nUsername's been taken, you noob!\nTry again!");
                 username = console.readLine();
             } else {
                 break;
             }
         }
 
-        System.out.println("Enter password:");
+        System.out.println("\nEnter password");
         char[] password = console.readPassword();
 
         String salt = generateSalt(512).get();
